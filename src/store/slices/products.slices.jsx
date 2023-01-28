@@ -2,18 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const productsSlice = createSlice({
     name: 'products',
-    initialState: [
-        {
-            id: 1,
-            name: 'Hp ProBook 6470b',
-            isAvailable: true
-        }
-    ],
+    initialState: [],
     reducers: {
+        setProducts : (state, action) =>{
+            let newProducts = action.payload;
+            return newProducts;
+        }
 
     }
 })
 
-export const {  } = productsSlice.actions;
+export const { setProducts  } = productsSlice.actions;
 
 export default productsSlice.reducer;
