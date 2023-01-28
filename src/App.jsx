@@ -1,19 +1,19 @@
+import { HashRouter,Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css'
+import Product from './pages/Product';
+import Loggin from './pages/Loggin';
+import Home from './pages/Home';
 
 function App() {
-    useEffect( () =>{
-        axios.get('https://e-commerce-api-v2.academlo.tech/api/v1/products')
-        .then()
-    },[])
-
 
     return (
-        <div className="App">
-            <h1>Hola</h1>
-        </div>
+        <HashRouter>
+            <Routes>
+                <Route path='/' element={ <Home /> } />
+                <Route path='./products/:id' element={ <Product /> } />
+                <Route path='./loggin' element={ <Loggin /> } />
+            </Routes>
+        </HashRouter>
     )
 }
 
