@@ -1,11 +1,9 @@
-import './App.css'
-import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react';
+import axios from 'axios';
+import './App.css'
 
 function App() {
-    // https://e-commerce-api-v2.academlo.tech/api/v1/products
-
     useEffect( () =>{
         axios.get('https://e-commerce-api-v2.academlo.tech/api/v1/products')
         .then()
