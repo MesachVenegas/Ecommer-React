@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import productsSlice  from './slices/products.slices'
+import loaderSlice from './slices/loader.slice'
+import productsSlice  from './slices/products.slice'
 
 export default configureStore({
     reducer: {
-        products: productsSlice
+        products: productsSlice,
+        isLoading: loaderSlice
     }
 })
