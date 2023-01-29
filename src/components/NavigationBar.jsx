@@ -5,21 +5,21 @@ import Nav from 'react-bootstrap/Nav';
 
 function NavigationBar() {
     return (
-        <Navbar bg="dark" variant='dark' expand="md" className="mb-3" sticky="top">
+        <Navbar bg="dark" variant='dark' expand="sm" className="mb-3" sticky="top">
             <Container fluid>
                 <Navbar.Brand href="/#/">M&K Shop</Navbar.Brand>
-                <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
+                <Navbar.Toggle aria-controls="offcanvasNavbar-expand-sm" />
                 <Navbar.Offcanvas
-                    id= "offcanvasNavbar-expand-md"
-                    aria-labelledby="offcanvasNavbarLabel-expand-md"
+                    id= "offcanvasNavbar-expand-sm"
+                    aria-labelledby="offcanvasNavbarLabel-expand-sm"
                     placement="end"
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
+                        <Offcanvas.Title id="offcanvasNavbarLabel-expand-sm">
                             M&K Shop Menu
                         </Offcanvas.Title>
                     </Offcanvas.Header>
-                    <Offcanvas.Body>
+                    <Offcanvas.Body >
                         <Nav className="justify-content-end flex-grow-1 pe-4">
                             <Nav.Link href="#!">
                                 <i class="fa-solid fa-user"></i> Loggin
