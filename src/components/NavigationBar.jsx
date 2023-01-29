@@ -1,0 +1,41 @@
+import Container from 'react-bootstrap/Container';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+
+function NavigationBar() {
+    return (
+        <Navbar bg="dark" variant='dark' expand="md" className="mb-3" sticky="top">
+            <Container fluid>
+                <Navbar.Brand href="/#/">M&K Shop</Navbar.Brand>
+                <Navbar.Toggle aria-controls="offcanvasNavbar-expand-md" />
+                <Navbar.Offcanvas
+                    id= "offcanvasNavbar-expand-md"
+                    aria-labelledby="offcanvasNavbarLabel-expand-md"
+                    placement="end"
+                >
+                    <Offcanvas.Header closeButton>
+                        <Offcanvas.Title id="offcanvasNavbarLabel-expand-md">
+                            M&K Shop Menu
+                        </Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                        <Nav className="justify-content-end flex-grow-1 pe-4">
+                            <Nav.Link href="#!">
+                                <i class="fa-solid fa-user"></i> Loggin
+                            </Nav.Link>
+                            <Nav.Link href="#!">
+                                <i class="fa-solid fa-shop"></i> Puncharses
+                            </Nav.Link>
+                            <Nav.Link href="#!">
+                                <i class="fa-solid fa-cart-shopping"></i> Cart
+                            </Nav.Link>
+                        </Nav>
+                    </Offcanvas.Body>
+                </Navbar.Offcanvas>
+            </Container>
+        </Navbar>
+    );
+}
+
+export default NavigationBar;
