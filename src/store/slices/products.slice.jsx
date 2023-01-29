@@ -6,21 +6,21 @@ export const productsSlice = createSlice({
     name: 'products',
     initialState: [],
     reducers: {
-        setProducts : (state, action) =>{
-            let newProducts = action.payload;
-            return newProducts;
+        setProducts: (state, action) => {
+            const products = action.payload;
+            return products;
         }
 
     }
 })
 
-export const getProductsThunk = () => dispatch =>{
-    dispatch( activeLoading(true));
+export const getProductsThunk = () => dispatch => {
+    dispatch(activeLoading(true));
     axios.get('https://e-commerce-api-v2.academlo.tech/api/v1/products')
-        .then( res => dispatch(setProducts(res.data)))
-        .finally( () => dispatch(activeLoading(false)))
+        .then(res => dispatch(setProducts(res.data)))
+        .finally(() => dispatch(activeLoading(false)));
 }
 
-export const { setProducts  } = productsSlice.actions;
+export const { setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
