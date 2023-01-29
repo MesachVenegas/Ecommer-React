@@ -14,7 +14,7 @@ function App() {
     return (
         <HashRouter>
             <NavigationBar/>
-            {isLoading ? <Loader /> : 'none'}
+            {isLoading && <Loader />}
             <Routes>
                 <Route path='/' element={ <Home /> } />
                 <Route path='/products/:id' element={ <Product /> } />
