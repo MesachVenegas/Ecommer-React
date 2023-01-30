@@ -21,7 +21,7 @@ const CardItem = ({product}) => {
                         lead-in to additional content. This content is a little bit
                         longer.
                     </Card.Text>
-                    <Button as={Link} to={`/products/${product.title}`}> ver mas</Button>
+                    <Button  as={Link} to={`/products/${product.id}`}> ver mas</Button>
                 </Card.Body>
                 <Card.Footer>
                     <small className="text-muted">{product.category.name}</small>
