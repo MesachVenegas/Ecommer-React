@@ -20,6 +20,9 @@ const Home = () => {
     return (
         <Container fluid>
             <ul className="categories">
+                <li onClick={ () => dispatch(getProductsThunk()) }>
+                    <a href="#">All</a>
+                </li>
                 {
                     categories.map( category => (
                         <li key={category.id} onClick={ () => dispatch(filterByCategoryThunk(category.id))}>
