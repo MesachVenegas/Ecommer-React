@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardItem from '../components/CardItem'
+import SideBarFilter from '../components/SideBarFilter/SideBarFilter'
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
-import { getProductsThunk, filterByCategoryThunk, filterByTitleThunk } from "../store/slices/products.slice";
+import { getProductsThunk, filterByTitleThunk } from "../store/slices/products.slice";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -18,9 +19,9 @@ const Home = () => {
     }, [])
 
     return (
-        <Container className="align-items-center" fluid>
+        <div className="grid_layout">
             {/* Search bar */}
-            <div className="container-sm p-2">
+            <div className="container-sm p-2 search">
                 <InputGroup className="mb-3">
                     <Form.Control
                         className="p-3"
@@ -40,31 +41,9 @@ const Home = () => {
                 </InputGroup>
             </div>
             {/* Filter by Category */}
-            <Container>
-                <ul className="categories list-group">
-                    <li
-                        className="list-group-item"
-                        onClick={ () => dispatch(getProductsThunk()) }
-                        style={{ cursor: 'pointer'}}
-                    >
-                        All
-                    </li>
-                    {
-                        categories.map( category => (
-                            <li
-                                className="list-group-item"
-                                key={category.id}
-                                onClick={ () => dispatch(filterByCategoryThunk(category.id))}
-                                style={{ cursor: 'pointer' }}
-                            >
-                                {category.name}
-                            </li>
-                        ))
-                    }
-                </ul>
-            </Container>
+            <SideBarFilter className="aside" categories={categories}/>
             {/* Listed products availables */}
-            <Container className="mt-4">
+            <Container className="mt-4 content">
                 <Row xs={1} sm={1} md={2} lg={3} className="g-4">
                     {
                         products.map(product =>(
@@ -73,7 +52,7 @@ const Home = () => {
                     }
                 </Row>
             </Container>
-        </Container>
+        </div>
     );
 };
 
