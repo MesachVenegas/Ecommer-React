@@ -63,7 +63,7 @@ const Home = () => {
                 </ul>
             </Container>
             {/* Listed products availables */}
-            <Container>
+            <Container className="mt-4">
                 <Row xs={1} sm={1} md={2} lg={3} className="g-4">
                     {
                         products.map(product =>(
