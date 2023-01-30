@@ -1,0 +1,60 @@
+.product_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "breadcrumb breadcrumb"
+    "image content"
+    "related related"
+    ;
+}
+
+.breadcrumb{
+    grid-area: breadcrumb;
+}
+
+.image{
+    grid-area: image;
+}
+
+.content{
+    grid-area: content;
+}
+
+.related{
+    grid-area: related;
+}
+
+.price_prod{
+    font-size: 1.4em;
+}
+
+.qty_control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5em;
+    width: 150px;
+    height: 20px;
+}
+
+.qty_control> span{
+    display: flex;
+    justify-content: center;
+    width: 55%;
+    height: 30px;
+    background-color: #FFF;
+}
+
+.qty_control .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 20px;
+}
+
+
+.qty_control> :nth-child(1){
+    position: relative;
+    right: -5px;
+}

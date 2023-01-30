@@ -10,7 +10,7 @@ const CardItem = ({product}) => {
 
     return (
         <Col>
-            <Card className='p-4' style={{width: '20rem'}}>
+            <Card className='p-4' style={{width: '18rem'}}>
                 <Card.Img
                     variant="top"
                     src={product.images[0].url}

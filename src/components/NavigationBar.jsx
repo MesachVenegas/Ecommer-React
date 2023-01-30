@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function NavigationBar() {
 
     return (
-        <Navbar bg="light" variant='light' expand="sm" className="mb-3" sticky="top">
+        <Navbar bg="light" variant='light' expand="md" className="mb-3" sticky="top">
             <Container fluid>
                 <Navbar.Brand as={ Link } to='/'>M&K Shop</Navbar.Brand>
                 <Navbar.Toggle aria-controls="offcanvasNavbar-expand-sm" />
