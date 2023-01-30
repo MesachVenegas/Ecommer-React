@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import Row from 'react-bootstrap/Row'
-import CardItem from "../components/CardItem";
-import  Container  from "react-bootstrap/Container";
+import CardItem from '../components/CardItem'
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsThunk, filterByCategoryThunk } from "../store/slices/products.slice";
+import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
 import axios from "axios";
 
 const Home = () => {
@@ -19,6 +18,18 @@ const Home = () => {
 
     return (
         <Container fluid>
+            <Container className="p-2">
+                <InputGroup className="mb-3">
+                    <Form.Control
+                        placeholder="Name or Id"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                    />
+                    <Button variant="outline-secondary" id="button-addon2">
+                        Search
+                    </Button>
+                </InputGroup>
+            </Container>
             <ul className="categories">
                 <li onClick={ () => dispatch(getProductsThunk()) }>
                     <a href="#">All</a>
