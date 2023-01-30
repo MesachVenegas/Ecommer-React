@@ -10,11 +10,12 @@ const CardItem = ({product}) => {
 
     return (
         <Col>
-            <Card style={{width: '20rem',cursor: 'pointer'}} onClick={() => navigate(`/products/${product.id}`)}>
+            <Card className='p-4' style={{width: '20rem'}}>
                 <Card.Img
                     variant="top"
                     src={product.images[0].url}
-                    style={ { height: '200px', objectFit: 'contain' } }
+                    style={{ height: '200px', objectFit: 'contain', cursor: 'pointer' } }
+                    onClick={() => navigate(`/products/${product.id}`)}
                 />
                 <Container className='mt-2' fluid>
                     <small className="text-muted">{product.brand}</small>
@@ -24,7 +25,7 @@ const CardItem = ({product}) => {
                     <small className="text-muted">Price</small>
                     <Card.Text className='d-flex justify-content-between align-items-center'>
                         ${product.price}
-                        <Button className='rounded-circle'>
+                        <Button>
                             Buy
                         </Button>
                     </Card.Text>

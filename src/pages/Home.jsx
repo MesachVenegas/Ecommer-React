@@ -20,9 +20,10 @@ const Home = () => {
     return (
         <Container className="align-items-center" fluid>
             {/* Search bar */}
-            <Container className="p-2">
+            <div className="container-sm p-2">
                 <InputGroup className="mb-3">
                     <Form.Control
+                        className="p-3"
                         placeholder="Name or Id"
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
@@ -34,10 +35,10 @@ const Home = () => {
                         id="button-addon2"
                         onClick={ () => dispatch(filterByTitleThunk(searchTitle)) }
                     >
-                        Search
+                        <i className="fa-solid fa-magnifying-glass"></i>
                     </Button>
                 </InputGroup>
-            </Container>
+            </div>
             {/* Filter by Category */}
             <Container>
                 <ul className="categories list-group">
