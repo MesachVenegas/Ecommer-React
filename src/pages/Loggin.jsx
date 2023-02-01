@@ -1,16 +1,21 @@
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap'
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import { setSession } from '../store/slices/loginState.slice';
 
 const Loggin = () => {
     const navigate = useNavigate();
+    const loginStatus = useSelector(state => state.loginState)
     const { register, handleSubmit, formState: { errors } } =  useForm();
 
     const submit = data =>{
+        console.log(loginStatus);
         axios.post('https://e-commerce-api-v2.academlo.tech/api/v1/users/login', data)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
+                setSession(true)
                 navigate('/')
             })
             .catch( error => {
@@ -19,8 +24,9 @@ const Loggin = () => {
                 }
                 console.error(error)
             })
-    }
+        }
 
+    console.log(loginStatus);
     return (
         <>
             <div className='loggin'>

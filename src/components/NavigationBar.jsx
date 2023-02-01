@@ -3,27 +3,32 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { setSession } from '../store/slices/loginState.slice';
+import { useEffect } from 'react';
 
 function NavigationBar() {
-    const [token, setToken] = useState(false)
+    const isSession = useSelector(state => state.loginState)
     const navigate = useNavigate();
 
     const logout= () =>{
         localStorage.setItem('token', '')
-        setToken(false)
+        setSession(false)
         navigate('/loggin')
     }
+
+    useEffect( () =>{
+    },[isSession])
 
 
     return (
         <Navbar bg="light" variant='light' expand="md" className="mb-3" sticky="top">
             <Container fluid>
-                <Navbar.Brand as={ Link } to='/'>M&K Shop</Navbar.Brand>
+                <Navbar.Brand as={Link} to='/'>M&K Shop</Navbar.Brand>
                 <Navbar.Toggle aria-controls="offcanvasNavbar-expand-sm" />
                 <Navbar.Offcanvas
-                    id= "offcanvasNavbar-expand-sm"
+                    id="offcanvasNavbar-expand-sm"
                     aria-labelledby="offcanvasNavbarLabel-expand-sm"
                     placement="end"
                 >
@@ -34,22 +39,15 @@ function NavigationBar() {
                     </Offcanvas.Header>
                     <Offcanvas.Body >
                         <Nav className="justify-content-end flex-grow-1 pe-4">
-                            <Nav.Link as={ Link } to='/purchases'>
+                            <Nav.Link as={Link} to='/purchases'>
                                 <i className="fa-solid fa-shop"></i> Puncharses
                             </Nav.Link>
                             <Nav.Link>
                                 <i className="fa-solid fa-cart-shopping"></i> Cart
                             </Nav.Link>
-                            {
-                                token ?
-                                <Nav.Link onClick={logout}>
-                                    <i className="fa-solid fa-right-from-bracket"></i> Logout
-                                </Nav.Link>
-                                :
-                                <Nav.Link as={ Link } to='/loggin'>
-                                    <i className="fa-solid fa-user"></i> Loggin
-                                </Nav.Link>
-                            }
+                            <Nav.Link as={Link} to='/loggin'>
+                                <i className="fa-solid fa-user"></i> Login
+                            </Nav.Link>
                             <Nav.Link onClick={logout}>
                                 <i className="fa-solid fa-right-from-bracket"></i> Logout
                             </Nav.Link>

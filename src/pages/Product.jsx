@@ -40,9 +40,9 @@ const Product = () => {
                 <Breadcrumb.Item as={ ListGroupItem } onClick={() => navigate('/')}>Home</Breadcrumb.Item>
                 <Breadcrumb.Item as={ListGroupItem} active>{product.brand}</Breadcrumb.Item>
             </div>
-            <div className='d-flex justify-content-center align-items-center p-3 image'>
-                <img src={product.images?.[0].url} alt="" />
-            </div>
+            <figure className='img_container image'>
+                <img src={product.images?.[0].url} alt="" className='product_img'/>
+            </figure>
             <div className="description content p-5">
                 <small>{product.brand}</small>
                 <h3>{product.title}</h3>
