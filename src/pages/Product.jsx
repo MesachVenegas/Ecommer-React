@@ -32,7 +32,7 @@ const Product = () => {
                 dispatch(filterByCategoryThunk(res.data.category.id))
             })
             .catch(error => console.log(error))
-    },[])
+    },[id])
 
     return (
         <div className='product_grid'>
