@@ -36,5 +36,4 @@ export const filterByTitleThunk = (name) => dispatch => {
 }
 
 export const { setProducts } = productsSlice.actions;
-
 export default productsSlice.reducer;
