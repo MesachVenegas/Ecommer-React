@@ -7,7 +7,6 @@ const Loggin = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } =  useForm();
 
-    // localStorage.setItem('name', 'Freddy')
     const submit = data =>{
         axios.post('https://e-commerce-api-v2.academlo.tech/api/v1/users/login', data)
             .then(res => {

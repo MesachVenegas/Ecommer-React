@@ -3,8 +3,19 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function NavigationBar() {
+    const [token, setToken] = useState(false)
+    const navigate = useNavigate();
+
+    const logout= () =>{
+        localStorage.setItem('token', '')
+        setToken(false)
+        navigate('/loggin')
+    }
+
 
     return (
         <Navbar bg="light" variant='light' expand="md" className="mb-3" sticky="top">
@@ -23,14 +34,24 @@ function NavigationBar() {
                     </Offcanvas.Header>
                     <Offcanvas.Body >
                         <Nav className="justify-content-end flex-grow-1 pe-4">
-                            <Nav.Link as={ Link } to='/loggin'>
-                                <i className="fa-solid fa-user"></i> Loggin
-                            </Nav.Link>
                             <Nav.Link as={ Link } to='/purchases'>
                                 <i className="fa-solid fa-shop"></i> Puncharses
                             </Nav.Link>
                             <Nav.Link>
                                 <i className="fa-solid fa-cart-shopping"></i> Cart
+                            </Nav.Link>
+                            {
+                                token ?
+                                <Nav.Link onClick={logout}>
+                                    <i className="fa-solid fa-right-from-bracket"></i> Logout
+                                </Nav.Link>
+                                :
+                                <Nav.Link as={ Link } to='/loggin'>
+                                    <i className="fa-solid fa-user"></i> Loggin
+                                </Nav.Link>
+                            }
+                            <Nav.Link onClick={logout}>
+                                <i className="fa-solid fa-right-from-bracket"></i> Logout
                             </Nav.Link>
                         </Nav>
                     </Offcanvas.Body>
