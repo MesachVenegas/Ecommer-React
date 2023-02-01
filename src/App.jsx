@@ -1,4 +1,5 @@
 import { HashRouter,Routes, Route } from 'react-router-dom';
+import ProtectedRoutes from './components/ProtectedRoutes';
 import NavigationBar from './components/NavigationBar'
 import Loader from './components/Loader/Loader';
 import Purchases from './pages/Purchases';
@@ -19,7 +20,10 @@ function App() {
                 <Route path='/' element={ <Home /> } />
                 <Route path='/products/:id' element={ <Product /> } />
                 <Route path='/loggin' element={ <Loggin /> } />
-                <Route path='/purchases' element={ <Purchases />} />
+
+                <Route element={ <ProtectedRoutes /> }>
+                    <Route path='/purchases' element={ <Purchases />} />
+                </Route>
             </Routes>
         </HashRouter>
     )
