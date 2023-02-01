@@ -1,13 +1,15 @@
 import './pages.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CardItem from '../components/CardItem';
-import { Breadcrumb, Button, Form, InputGroup, ListGroupItem, Row } from 'react-bootstrap';
+import { Breadcrumb, Button, ListGroupItem, Row } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterByCategoryThunk } from '../store/slices/products.slice';
 
 const Product = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const { id } = useParams();
     const [product, setProduct] = useState({});
@@ -35,7 +37,7 @@ const Product = () => {
     return (
         <div className='product_grid'>
             <div className='breadcrumb'>
-                <Breadcrumb.Item as={ ListGroupItem } href="#">Home</Breadcrumb.Item>
+                <Breadcrumb.Item as={ ListGroupItem } onClick={() => navigate('/')}>Home</Breadcrumb.Item>
                 <Breadcrumb.Item as={ListGroupItem} active>{product.brand}</Breadcrumb.Item>
             </div>
             <div className='d-flex justify-content-center align-items-center p-3 image'>
@@ -69,7 +71,7 @@ const Product = () => {
                     <div className="buy_btn d-flex justify-content-center">
                         <Button className='d-flex bg-danger text-white gap-2 align-items-center' size='lg'>
                             Add to cart
-                            <i class="fa-solid fa-cart-arrow-down"></i>
+                            <i className="fa-solid fa-cart-arrow-down"></i>
                         </Button>
                     </div>
                 </div>

@@ -58,3 +58,59 @@
     position: relative;
     right: -5px;
 }
+
+/* Login */
+
+.loggin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 85vh;
+}
+
+
+.loggin_card{
+    width: 90%;
+    padding: 3em;
+    box-shadow: 0 0 14px rgba(0, 0, 0, .2);
+    border-radius: 1em;
+}
+
+.loggin_card > h2{
+    text-align: center;
+}
+
+.btn_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn_loggin{
+    width: 80%;
+}
+
+
+
+@media screen and (min-width: 489px) {
+    .loggin_card{
+        width: 80%;
+    }
+}
+@media screen and (min-width: 578px) {
+    .loggin_card{
+        width: 60%;
+    }
+}
+@media screen and (min-width: 798px) {
+    .loggin_card{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 992px) {
+    .loggin_card{
+        width: 35%;
+    }
+}
