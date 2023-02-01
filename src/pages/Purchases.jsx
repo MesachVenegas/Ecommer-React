@@ -1,26 +1,36 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPurchasesThunk } from "../store/slices/purchases.slice";
+import PurchaseItem from '../components/PurchasesItem/PurchaseItem'
+import { Breadcrumb, ListGroup, ListGroupItem } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 
 const Purchases = () => {
     const historyPurchases = useSelector(state => state.purchases)
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect( () =>{
         dispatch(getPurchasesThunk())
     },[])
 
-    console.log(historyPurchases);
 
     return (
         <div>
-            <h1>Compras</h1>
-            {
-                historyPurchases.map( purchase => (
-                    <CardItem />
-                ))
-            }
+            <div className='breadcrumb'>
+                <Breadcrumb.Item as={ListGroupItem} onClick={() => navigate('/')}>Home</Breadcrumb.Item>
+                <Breadcrumb.Item as={ListGroupItem} onClick={() => navigate('/')}>User Name</Breadcrumb.Item>
+                <Breadcrumb.Item as={ListGroupItem} active>Purchases</Breadcrumb.Item>
+            </div>
+            <h1>Historial de Compras</h1>
+            <ListGroup className="products_container">
+                {
+                    historyPurchases.map( product => (
+                        <PurchaseItem key={product.id} product={product.product} />
+                    ))
+                }
+            </ListGroup>
         </div>
     );
 };
