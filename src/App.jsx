@@ -3,6 +3,7 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import NavigationBar from './components/NavigationBar'
 import Loader from './components/Loader/Loader';
 import Purchases from './pages/Purchases';
+import Footer from './components/Footer/Footer';
 import { useSelector } from 'react-redux';
 import Product from './pages/Product';
 import Loggin from './pages/Loggin';
@@ -25,6 +26,7 @@ function App() {
                     <Route path='/purchases' element={ <Purchases />} />
                 </Route>
             </Routes>
+            <Footer />
         </HashRouter>
     )
 }
