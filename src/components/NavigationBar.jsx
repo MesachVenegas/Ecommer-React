@@ -1,15 +1,12 @@
+import { setSession } from '../store/slices/loginState.slice';
+import { Link, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { setSession } from '../store/slices/loginState.slice';
-import { useEffect } from 'react';
+import Cart from './Cart';
 
 function NavigationBar() {
-    const isSession = useSelector(state => state.loginState)
     const navigate = useNavigate();
 
     const logout= () =>{
@@ -17,9 +14,6 @@ function NavigationBar() {
         setSession(false)
         navigate('/loggin')
     }
-
-    useEffect( () =>{
-    },[isSession])
 
 
     return (
@@ -42,9 +36,7 @@ function NavigationBar() {
                             <Nav.Link as={Link} to='/purchases'>
                                 <i className="fa-solid fa-shop"></i> Puncharses
                             </Nav.Link>
-                            <Nav.Link>
-                                <i className="fa-solid fa-cart-shopping"></i> Cart
-                            </Nav.Link>
+                            <Cart />
                             <Nav.Link as={Link} to='/loggin'>
                                 <i className="fa-solid fa-user"></i> Login
                             </Nav.Link>
