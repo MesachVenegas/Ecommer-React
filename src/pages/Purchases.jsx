@@ -4,7 +4,7 @@ import { getPurchasesThunk } from "../store/slices/purchases.slice";
 import PurchaseItem from '../components/PurchasesItem/PurchaseItem'
 import { Breadcrumb, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import './pages.css'
 
 const Purchases = () => {
     const historyPurchases = useSelector(state => state.purchases)
@@ -23,10 +23,10 @@ const Purchases = () => {
                 <Breadcrumb.Item as={ListGroupItem} onClick={() => navigate('/')}>User Name</Breadcrumb.Item>
                 <Breadcrumb.Item as={ListGroupItem} active>Purchases</Breadcrumb.Item>
             </div>
-            <h1>Historial de Compras</h1>
             <ListGroup className="products_container">
+                <h2>Historial de Compras</h2>
                 {
-                    historyPurchases.map( product => (
+                    historyPurchases?.map( product => (
                         <PurchaseItem key={product.id} product={product.product} />
                     ))
                 }

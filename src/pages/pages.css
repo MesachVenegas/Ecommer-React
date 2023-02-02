@@ -123,6 +123,10 @@
     gap: 1.5em;
 }
 
+.purchases > h2{
+    text-align: center;
+}
+
 
 @media screen and (min-width: 489px) {
     .loggin_card{

@@ -51,6 +51,7 @@
 
 .description > :nth-child(1){
     grid-area: title;
+    justify-self: flex-start;
 }
 .description > :nth-child(2){
     grid-area: brand;
@@ -83,5 +84,10 @@
             "brand none none"
             "price qty none2"
             "view view view";
+    }
+
+    .description> :nth-child(6) {
+        justify-self: flex-end;
+        width: 50%;
     }
 }
