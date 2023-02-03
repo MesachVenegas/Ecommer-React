@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit'
-import addProductSlice from './slices/addProduct.slice'
 import cartSlice from './slices/cart.slice'
 import loaderSlice from './slices/loader.slice'
 import loginStateSlice from './slices/loginState.slice'
@@ -13,6 +12,5 @@ export default configureStore({
         loginState: loginStateSlice,
         purchases: purchasesSlice,
         cartItems: cartSlice,
-        addProduct: addProductSlice
     }
 })
