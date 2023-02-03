@@ -1,0 +1,13 @@
+.cart_list{
+    height: 380px;
+    overflow-y: scroll;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.checkOut{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1em;
+}

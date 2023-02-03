@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Cart from './Cart';
+import Cart from './Cart/Cart';
 
 function NavigationBar() {
     const navigate = useNavigate();

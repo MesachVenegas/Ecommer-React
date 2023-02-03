@@ -1,0 +1,19 @@
+.card_item{
+    display: flex!important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: .5em;
+    padding: .5em 1em;
+    border: 3px solid red;
+}
+
+.cartImg_container{
+    width: 90px;
+    height: 60px;
+}
+
+.cart_description > h5{
+    display: flex;
+    flex-direction: column;
+    font-size: .9em;
+}
