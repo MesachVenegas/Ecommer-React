@@ -11,13 +11,25 @@ import { filterByCategoryThunk } from '../store/slices/products.slice';
 const Product = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [indexImage, setIndexImage] = useState(0);
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const [qty, setQty] = useState(0)
     const relatedProducts = useSelector(state => state.products);
 
+    const back = () =>{
+        if(product.images.length > 0){
+            setIndexImage(indexImage - 1)
+        }
+    }
+    const front = () =>{
+        if(indexImage > product.images.length){
+            setIndexImage(indexImage + 1)
+        }
+    }
+
     const decrement = ()=>{
-        if(qty > 0){
+        if(qty > 1){
             setQty(qty - 1)
         }
     }
@@ -37,18 +49,28 @@ const Product = () => {
     return (
         <div className='product_layout'>
             <div className='breadcrumb_container'>
-                <Breadcrumb.Item as={ ListGroupItem } onClick={() => navigate('/')}>Home</Breadcrumb.Item>
-                <Breadcrumb.Item as={ListGroupItem} active>{product.brand}</Breadcrumb.Item>
+                <Breadcrumb.Item
+                    as={ ListGroupItem }
+                    onClick={() => navigate('/')}
+                >
+                    Home
+                </Breadcrumb.Item>
+                <Breadcrumb.Item
+                    as={ListGroupItem}
+                    active
+                >
+                    {product.brand}
+                </Breadcrumb.Item>
             </div>
             <div className="item_container">
                 {/* images product */}
                 <div className="slider_product">
                     <figure className='img_container'>
-                        <span>
+                        <span >
                             <i className="fa-solid fa-circle-chevron-left"></i>
                         </span>
-                        <img src={product.images?.[0].url} alt="" className='product_img'/>
-                        <span>
+                        <img src={product.images?.[indexImage].url} alt="" className='product_img'/>
+                        <span onClick={front}>
                             <i className="fa-solid fa-circle-chevron-right"></i>
                         </span>
                     </figure>
@@ -70,11 +92,11 @@ const Product = () => {
                             {product.description}
                         </p>
                         <div className="d-flex justify-content-around buttons py-4">
-                            <div className="d-flex flex-column price">
+                            <div className="d-flex flex-column">
                                 <small >Price</small>
-                                <span className='price_prod text-danger'>${product.price}</span>
+                                <span className='price_prod'>${product.price}</span>
                             </div>
-                            <div className="d-flex flex-column price">
+                            <div className="d-flex flex-column">
                                 <small>Qty</small>
                                 <div className="qty_control">
                                     <button className='btn' onClick={decrement}>
@@ -87,8 +109,8 @@ const Product = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="buy_btn d-flex justify-content-center">
-                            <Button className='d-flex text-white gap-2 align-items-center' size='lg'>
+                        <div className="buy_btn d-flex justify-content-center p-4">
+                            <Button className='d-flex gap-2 align-items-center'>
                                 Add to cart
                                 <i className="fa-solid fa-cart-arrow-down"></i>
                             </Button>
@@ -97,13 +119,14 @@ const Product = () => {
                 </div>
             </div>
             <div className='related'>
-                <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+                <h4>Discover related items</h4>
+                <div className="related_items">
                     {
                         relatedProducts.map(product => (
                             <CardItem key={product.id} product={product} />
                         ))
                     }
-                </Row>
+                </div>
             </div>
         </div>
     );

@@ -1,16 +1,16 @@
 .product_layout {
-    display: grid;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 1.5em;
-    padding: 2em;
-    border: 2px solid;
+    padding: 1em;
 }
 
 .breadcrumb_container {
     display: flex;
+    width: 100%;
     background-color: #d9e3f1;
     padding: 1em;
     border: none;
@@ -49,7 +49,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 1em;
+    border: none;
+    box-shadow:
+        5px 5px 10px rgba(55, 94, 148, .2),
+        -5px -5px 10px rgba(255, 255, 255, .4);
+    transition:
+        background-color .15s ease-in-out,
+        border .15s ease-in-out,
+        box-shadow .15s ease-in-out,
+        color .15s ease-in-out;
+    border-radius: .375rem;
 }
 
 .img_container {
@@ -96,17 +107,15 @@
 .images_slider{
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 90%;
     height: 150px;
     padding: 1em;
     gap: 1em;
-    /* overflow: hidden; */
 }
 
 .product_thumbail{
     width: 150px;
     height: 100px;
-    overflow: hidden;
 }
 
 .product_thumbail > img{
@@ -119,20 +128,24 @@
 .btn:active{
     background-color: red!important;
 }
-/*
+
 .content{
-    width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     grid-area: content;
 }
 
+.buttons{
+    width: 100%;
+}
 
 .price_prod{
     font-size: 1.4em;
 }
+
 
 .qty_control{
     display: flex;
@@ -164,7 +177,28 @@
     right: -5px;
 }
 
-*/
+
+.related{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    padding: 2em;
+}
+
+.related > h4{
+    align-self: flex-start;
+}
+
+.related_items{
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    padding: 2em;
+    gap: 1em;
+}
+
 /* Login */
 
 .loggin {
@@ -233,6 +267,10 @@
 }
 
 @media screen and (min-width: 992px) {
+    .item_container{
+        flex-wrap: nowrap;
+    }
+
     .loggin_card {
         width: 35%;
     }

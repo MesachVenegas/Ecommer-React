@@ -7,7 +7,12 @@ import './cart.css'
 
 const Cart = () => {
     const [display, setDisplay] = useState(false);
-    const cartShow = () => setDisplay(true);
+    const cartShow = () => {
+        if (localStorage.getItem('token')) {
+            dispatch(getCartItemsThunk())
+        }
+        setDisplay(true)
+    };
     const cartClose = () => setDisplay(false);
     const cartItems = useSelector(state => state.cartItems)
     const dispatch = useDispatch();
