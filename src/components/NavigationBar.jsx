@@ -37,12 +37,16 @@ function NavigationBar() {
                                 <i className="fa-solid fa-shop"></i> Puncharses
                             </Nav.Link>
                             <Cart />
-                            <Nav.Link as={Link} to='/loggin'>
-                                <i className="fa-solid fa-user"></i> Login
-                            </Nav.Link>
-                            <Nav.Link onClick={logout}>
-                                <i className="fa-solid fa-right-from-bracket"></i> Logout
-                            </Nav.Link>
+                            {
+                                localStorage.getItem('token') ?
+                                <Nav.Link onClick={logout}>
+                                    <i className="fa-solid fa-right-from-bracket"></i> Logout
+                                </Nav.Link>
+                                :
+                                <Nav.Link as={Link} to='/loggin'>
+                                    <i className="fa-solid fa-user"></i> Login
+                                </Nav.Link>
+                            }
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
