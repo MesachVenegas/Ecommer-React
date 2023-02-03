@@ -88,7 +88,7 @@ const Product = () => {
                             </div>
                         </div>
                         <div className="buy_btn d-flex justify-content-center">
-                            <Button className='d-flex bg-danger text-white gap-2 align-items-center' size='lg'>
+                            <Button className='d-flex text-white gap-2 align-items-center' size='lg'>
                                 Add to cart
                                 <i className="fa-solid fa-cart-arrow-down"></i>
                             </Button>

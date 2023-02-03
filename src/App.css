@@ -19,3 +19,8 @@
 .content {
     grid-area: content;
 }
+
+.nav-link:focus,
+.nav-link:hover{
+    color: rgba(255, 0, 0, .6)!important;
+}

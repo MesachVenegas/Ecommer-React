@@ -25,7 +25,7 @@ const CardItem = ({product}) => {
                     <small className="text-muted">Price</small>
                     <Card.Text className='d-flex justify-content-between align-items-center'>
                         ${product.price}
-                        <Button className='bg-danger text-white'>
+                        <Button>
                             Buy
                         </Button>
                     </Card.Text>

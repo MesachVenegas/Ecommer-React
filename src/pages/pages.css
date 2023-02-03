@@ -116,6 +116,9 @@
     object-fit: scale-down;
 }
 
+.btn:active{
+    background-color: red!important;
+}
 /*
 .content{
     width: 100%;
