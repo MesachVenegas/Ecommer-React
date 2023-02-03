@@ -1,8 +1,13 @@
 .cart_list{
-    height: 380px;
+    display: flex!important;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     overflow-y: scroll;
+    height: 380px;
+    padding: 1.5em;
+    gap: 1em;
     border-radius: 1em;
-    padding: 1em;
 }
 
 .checkOut{
