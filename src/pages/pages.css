@@ -234,13 +234,22 @@
 
 
 /*  */
-.products_container {
+.products_home{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3em;
-    gap: 1.5em;
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+}
+
+.product_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    padding: 1em;
+    gap: 1em;
 }
 
 .purchases>h2 {

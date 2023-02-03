@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import CardItem from '../components/CardItem'
+import CardItem from '../components/CardItem/CardItem'
 import SideBarFilter from '../components/SideBarFilter/SideBarFilter'
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { getProductsThunk, filterByTitleThunk } from "../store/slices/products.slice";
 
 const Home = () => {
@@ -43,15 +43,15 @@ const Home = () => {
             {/* Filter by Category */}
             <SideBarFilter className="aside" categories={categories}/>
             {/* Listed products availables */}
-            <Container className="mt-4 content">
-                <Row xs={1} sm={1} md={2} lg={3} className="g-4">
+            <div className="content products_home">
+                <div className="product_box">
                     {
                         products.map(product =>(
                             <CardItem key={product.id} product={product}/>
                         ))
                     }
-                </Row>
-            </Container>
+                </div>
+            </div>
         </div>
     );
 };

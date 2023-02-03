@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import CardItem from '../components/CardItem';
+import CardItem from '../components/CardItem/CardItem';
 import { Breadcrumb, Button, ListGroupItem, Row } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterByCategoryThunk } from '../store/slices/products.slice';

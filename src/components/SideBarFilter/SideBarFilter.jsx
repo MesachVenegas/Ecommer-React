@@ -1,12 +1,13 @@
-import { useDispatch } from "react-redux";
 import { filterByCategoryThunk, getProductsThunk } from "../../store/slices/products.slice";
+import { useDispatch } from "react-redux";
+import './sidebar.css'
 
 const SideBarFilter = ({ categories }) => {
     const dispatch = useDispatch();
 
     return (
-        <div>
-            <ul className="categories list-group p-4">
+        <>
+            <ul className="categories list-group d-flex p-4">
             <small>Filter by Category</small>
                 <li
                     className="list-group-item"
@@ -28,7 +29,7 @@ const SideBarFilter = ({ categories }) => {
                     ))
                 }
             </ul>
-        </div>
+        </>
     );
 };
 

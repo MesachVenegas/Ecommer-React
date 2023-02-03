@@ -1,0 +1,19 @@
+.product_card{
+    width: 95%;
+    padding: 1.5em;
+    border: 1px solid;
+}
+
+
+
+@media screen and (min-width: 789px) {
+    .product_card{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .product_card{
+        width: 30%;
+    }
+}
