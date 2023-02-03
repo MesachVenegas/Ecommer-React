@@ -1,21 +1,35 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Button, ListGroup, Nav, Offcanvas } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartItemsThunk } from '../../store/slices/cart.slice';
+import { useNavigate } from 'react-router-dom';
+import { getCartItemsThunk, purchasesItemsThunk } from '../../store/slices/cart.slice';
+import getConfig from '../../utils/getConfig';
 import ProductCart from '../ProductCart/ProductCart';
 import './cart.css'
 
 const Cart = () => {
     const [display, setDisplay] = useState(false);
+    const navigate = useNavigate();
     const cartShow = () => {
         if (localStorage.getItem('token')) {
             dispatch(getCartItemsThunk())
+        }else{
+            navigate('/loggin')
         }
         setDisplay(true)
     };
     const cartClose = () => setDisplay(false);
     const cartItems = useSelector(state => state.cartItems)
     const dispatch = useDispatch();
+
+    const purchaseItems = () =>{
+        axios.post('https://e-commerce-api-v2.academlo.tech/api/v1/purchases', {}, getConfig())
+            .then(() => {
+                alert('Artículos Enviados')
+                dispatch(getCartItemsThunk())
+            })
+    }
 
     useEffect( () =>{
         if(localStorage.getItem('token')){
@@ -42,7 +56,7 @@ const Cart = () => {
                         }
                     </ListGroup>
                     <div className="checkOut">
-                        <Button>Check Out</Button>
+                        <Button onClick={ purchaseItems }>Check Out</Button>
                     </div>
                 </Offcanvas.Body>
             </Offcanvas>

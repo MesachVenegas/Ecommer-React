@@ -40,6 +40,9 @@ export const deleteProductThunk = (id) => (dispatch) => {
             alert('producto eliminado')
             getCartItemsThunk()
         })
+        .catch(error =>{
+            console.log(error)
+        })
         .finally(() => dispatch(activeLoading(false)));
 }
 
@@ -47,9 +50,26 @@ export const editProductThunk = (id, qty) => (dispatch) => {
     dispatch(activeLoading(true));
     return axios.put(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${id}/`, qty, getConfig())
         .then(() => console.log('producto actualizado'))
+        .catch(error => {
+            if(error.response.status == 404){
+                alert('No se encontró el producto')
+            }else{
+                console.error(error.response)
+            }
+        })
         .finally(() => dispatch(activeLoading(false)));
 }
 
+
+export const purchasesItemsThunk = () => (dispatch) => {
+    dispatch(activeLoading(true));
+    return axios.post('https://e-commerce-api-v2.academlo.tech/api/v1/purchases', {}, getConfig())
+        .then(() => dispatch(alert('Artículos Enviados')))
+        .finally(() => {
+            dispatch(activeLoading(false))
+            dispatch(setCartItems([]))
+        });
+}
 
 export const { setCartItems } = cartSlice.actions;
 
