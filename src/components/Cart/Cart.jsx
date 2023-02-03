@@ -14,10 +14,10 @@ const Cart = () => {
     const cartShow = () => {
         if (localStorage.getItem('token')) {
             dispatch(getCartItemsThunk())
+            setDisplay(true)
         }else{
             navigate('/loggin')
         }
-        setDisplay(true)
     };
     const cartClose = () => setDisplay(false);
     const cartItems = useSelector(state => state.cartItems)
