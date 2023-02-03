@@ -1,11 +1,10 @@
 .cart_list{
     display: flex!important;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     overflow-y: scroll;
     height: 380px;
-    padding: 1.5em;
+    margin: auto;
     gap: 1em;
     border-radius: 1em;
 }
